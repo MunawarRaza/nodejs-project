@@ -1,9 +1,19 @@
 version: 0.2
 
 phases:
+   install:
+      commands:
+      -  echo Build Started 'date'
+   pre_build:
+      commands:
+      - echo pre build started
+      - npm install
    build:
       commands:
-      - npm install && npm run-script build
+      - npm run-script build
+   post_build:
+      commands:
+      - echo build created successfully
    artifacts:
       files:
       - '**/*'
